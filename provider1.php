@@ -2,7 +2,6 @@
 
 header('Content-Type: text/html; charset=utf-8');
 
-include 'functions.php';
 
 $pdo = new PDO('mysql:host=localhost;dbname=InditexPoland', 'root', 'ubuntu');
 $pdo->exec("set names utf8");

@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-include 'functions.php';
 
 $all_products_json = file_get_contents('http://localhost/ias/api.php?action=getAllProducts');
 $top_products_json = file_get_contents('http://localhost/ias/api.php?action=getBestsellers');
