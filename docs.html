@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Dokumentacja: Prod-Integrator v1.0.0</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>
+					Dokumentacja <small>Prod-Integrator v1.0.0</small>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>
+				Spis plików
+			</h3>
+			<ol>
+				<li>
+					<code>index.php</code> - klient
+				</li>
+				<li>
+					<code>api.php</code> - HUB API
+				</li>
+				<li>
+					<code>provider1.php</code> - API bazy danych provider1
+				</li>
+				<li>
+					<code>provider2.php</code> - API bazy danych provider2
+				</li>
+			</ol>
+		</div>
+		<div class="col-md-6">
+			<h3>
+				Technologia & środowisko
+			</h3>
+			<ol>
+				<li>
+					Apache
+				</li>
+				<li>
+					PHP
+				</li>
+				<li>
+					Adminer
+				</li>
+				<li>
+					HTML/CSS/JS framework Bootstrap
+				</li>
+			</ol>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				<code>index.php</code>
+			</h3> 
+			<pre>$all_products_json = file_get_contents('http://localhost/ias/api.php?action=getAllProducts');
+$top_products_json = file_get_contents('http://localhost/ias/api.php?action=getBestsellers');
+</pre>
+			<p>
+				Do zmiennych <i><strong>$all_products_json</strong></i> i <i><strong>$top_products_json</strong></i> przypisywany jest json pobrany z HUB API.
+			</p>
+			<pre>$all_products = json_decode($all_products_json, true);
+$top_products = json_decode($top_products_json, true);</pre>
+			<p>
+				Ponieważ json jest w formie stringu/inta trzeba go zdekodować.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				<code>api.php</code>
+			</h3> 
+			<pre>$all_products_json = file_get_contents('http://localhost/ias/api.php?action=getAllProducts');
+$top_products_json = file_get_contents('http://localhost/ias/api.php?action=getBestsellers');
+</pre>
+			<p>
+				Do zmiennych <i><strong>$all_products_json</strong></i> i <i><strong>$top_products_json</strong></i> przypisywany jest json pobrany z HUB API.
+			</p>
+			<pre>$all_products = json_decode($all_products_json, true);
+$top_products = json_decode($top_products_json, true);</pre>
+			<p>
+				Ponieważ json jest w formie stringu/inta trzeba go zdekodować.
+			</p>
+		</div>
+	</div>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
