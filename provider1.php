@@ -15,7 +15,6 @@ switch ($action) {
 
 			foreach ($products as $product) {
 				$return[] = array(
-					'product_id' => $product['id'],
 					'product_name' => $product['nazwa'],
 					'product_producer' => $product['producent'],
 					'product_price' => $product['cena'],

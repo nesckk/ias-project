@@ -41,12 +41,11 @@ $top_products = json_decode($top_products_json, true);
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+				<h3>Wszystkie produkty z baz danych</h3>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>
-									ID
-								</th>								<th>
 									Nazwa
 								</th>
 								<th>
@@ -61,8 +60,6 @@ $top_products = json_decode($top_products_json, true);
 							<?php foreach ($all_products['allProducts']['p1'] as $product): ?>
 								<tr>
 									<td>
-										<?php echo $product['product_id']; ?>
-									</td>									<td>
 										<?php echo $product['product_name']; ?>
 									</td>
 									<td>
@@ -73,27 +70,6 @@ $top_products = json_decode($top_products_json, true);
 									</td>
 								</tr>
 							<?php endforeach; ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>
-									Nazwa
-								</th>
-								<th>
-									Cena
-								</th>
-								<th>
-									Ilość sztuk
-								</th>
-							</tr>
-						</thead>
-						<tbody>
 							<?php foreach ($all_products['allProducts']['p2'] as $product): ?>
 								<tr>
 									<td>
@@ -111,11 +87,9 @@ $top_products = json_decode($top_products_json, true);
 					</table>
 				</div>
 			</div>
-
-			<!--              tabelka                   -->
-
 			<div class="row">
 				<div class="col-md-12">
+				<h3>TOP3 produkty o największej dostepnośći w Provider 1</h3>
 					<table class="table">
 						<thead>
 							<tr>
@@ -151,6 +125,7 @@ $top_products = json_decode($top_products_json, true);
 
 			<div class="row">
 				<div class="col-md-12">
+				<h3>TOP3 produkty o największej dostepnośći w Provider 2</h3>
 					<table class="table">
 						<thead>
 							<tr>

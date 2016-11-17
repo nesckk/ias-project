@@ -91,17 +91,43 @@ $top_products = json_decode($top_products_json, true);</pre>
 			<h3>
 				<code>api.php</code>
 			</h3> 
-			<pre>$all_products_json = file_get_contents('http://localhost/ias/api.php?action=getAllProducts');
-$top_products_json = file_get_contents('http://localhost/ias/api.php?action=getBestsellers');
+			<pre>header('Content-Type: text/html; charset=utf-8');
 </pre>
 			<p>
-				Do zmiennych <i><strong>$all_products_json</strong></i> i <i><strong>$top_products_json</strong></i> przypisywany jest json pobrany z HUB API.
+				Ustawienie kodowania przetważanych danych. Bardzo ważne, aby kodowanie tutaj wybrane było takie same jak kodowanie danych w bazie danych (ustawia się jako tzw. "metode porównywania napisów"), w innym wypadku mogę wystąpić tzw. "krzaczki" (brak znaków narodowych, symboli itp).
 			</p>
-			<pre>$all_products = json_decode($all_products_json, true);
-$top_products = json_decode($top_products_json, true);</pre>
+			<pre>$action = (isset($_REQUEST['action'])) ? $_REQUEST['action'] : '';</pre>
 			<p>
-				Ponieważ json jest w formie stringu/inta trzeba go zdekodować.
+				Takie rozwiązanie pozwala przypisać coś zmiennej <i><strong>$action</strong></i> tylko wtedy gdy zapytanie nie jest puste. Brak tego rozwiązania spowodowałby wyskakiwanie błędów (z powodu nie zadeklarowanej zmiennej) przy pustym zapytaniu.
 			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				<code>provider1.php</code> & <code>provider2.php</code>
+			</h3> 
+			<pre>$pdo = new PDO('mysql:host=;dbname=', 'login', 'pass');
+</pre>
+			<p>
+				 Konfiguracja połączenia z bazą danych dostawcy
+			</p>
+			<p>
+<ul>
+  <li><i><strong>localhost</strong></i> - adres bazy danych</li>
+  <li><i><strong>dbname</strong></i> - nazwa bazy danych pod powyższym adresem</li>
+  <li><i><strong>login</strong></i> - login do bazy</li>
+  <li><i><strong>pass</strong></i> - hasło do bazy</li>
+</ul>			
+			</p>
+			<pre>$products = $pdo->query('SELECT * FROM `Produkty`');</pre>
+			<p>
+				 Zapytanie do bazy pobierające wszystkie wiersze z tabeli Produkty
+			</p>
+			<pre>$products = $pdo->query('SELECT * FROM `Produkty` ORDER BY `dostepnosc` DESC LIMIT 3');</pre>
+			<p>
+				 Zapytanie do bazy pobierające 3 wiersze z nawiększą wartoscia kolumny "dostepnosc", z tabeli Produkty, i sortujące je rosnąco wg. kolumny 'dostepnosc'.
+			</p>			
 		</div>
 	</div>
 </div>
