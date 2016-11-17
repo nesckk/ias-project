@@ -45,6 +45,8 @@ $top_products = json_decode($top_products_json, true);
 						<thead>
 							<tr>
 								<th>
+									ID
+								</th>								<th>
 									Nazwa
 								</th>
 								<th>
@@ -59,6 +61,8 @@ $top_products = json_decode($top_products_json, true);
 							<?php foreach ($all_products['allProducts']['p1'] as $product): ?>
 								<tr>
 									<td>
+										<?php echo $product['product_id']; ?>
+									</td>									<td>
 										<?php echo $product['product_name']; ?>
 									</td>
 									<td>

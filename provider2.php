@@ -12,9 +12,9 @@ $action = (isset($_REQUEST['act'])) ? $_REQUEST['act'] : '';
 
 switch ($action) {
 	case'getListAll': {
-			$stmt = $pdo->query('SELECT * FROM `Products`');
+			$products = $pdo->query('SELECT * FROM `Products`');
 
-			foreach ($stmt as $product) {
+			foreach ($products as $product) {
 				$return[] = array(
 					'product_name' => $product['name'],
 					'product_producer' => $product['producer'],
@@ -26,9 +26,9 @@ switch ($action) {
 			break;
 		}
 	case'getListTop': {
-			$stmt = $pdo->query('SELECT * FROM `Products` ORDER BY `availability` DESC LIMIT 3');
+			$products = $pdo->query('SELECT * FROM `Products` ORDER BY `availability` DESC LIMIT 3');
 
-			foreach ($stmt as $product) {
+			foreach ($products as $product) {
 				$return[] = array(
 					'product_name' => $product['name'],
 					'product_producer' => $product['producer'],

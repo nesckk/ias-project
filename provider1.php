@@ -11,10 +11,11 @@ $action = (isset($_REQUEST['todo'])) ? $_REQUEST['todo'] : '';
 
 switch ($action) {
 	case'getAllProducts': {
-			$stmt = $pdo->query('SELECT * FROM `Produkty`');
+			$products = $pdo->query('SELECT * FROM `Produkty`');
 
-			foreach ($stmt as $product) {
+			foreach ($products as $product) {
 				$return[] = array(
+					'product_id' => $product['id'],
 					'product_name' => $product['nazwa'],
 					'product_producer' => $product['producent'],
 					'product_price' => $product['cena'],
@@ -25,9 +26,9 @@ switch ($action) {
 			break;
 		}
 	case'getBestsellers': {
-			$stmt = $pdo->query('SELECT * FROM `Produkty` ORDER BY `dostepnosc` DESC LIMIT 3');
+			$products = $pdo->query('SELECT * FROM `Produkty` ORDER BY `dostepnosc` DESC LIMIT 3');
 
-			foreach ($stmt as $product) {
+			foreach ($products as $product) {
 				$return[] = array(
 					'product_name' => $product['nazwa'],
 					'product_producer' => $product['producent'],

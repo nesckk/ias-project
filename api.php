@@ -24,7 +24,6 @@ switch ($action) {
 		}
 	default: {
 			$return = array('brak zdefiniowanej akcji');
-
 			break;
 		}
 }
