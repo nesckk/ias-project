@@ -1,6 +1,6 @@
 <?php
 
-header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 
 
 $pdo = new PDO('mysql:host=localhost;dbname=InditexPoland', 'root', 'ubuntu');
